@@ -1,0 +1,7 @@
+# Entorno virtual (donde se instalan las librerías)
+venv/
+.venv/
+
+# Cache de Python
+__pycache__/
+*.pyc

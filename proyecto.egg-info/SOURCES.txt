@@ -1,0 +1,10 @@
+setup.py
+proyecto.egg-info/PKG-INFO
+proyecto.egg-info/SOURCES.txt
+proyecto.egg-info/dependency_links.txt
+proyecto.egg-info/requires.txt
+proyecto.egg-info/top_level.txt
+src/__init__.py
+src/exception.py
+src/logger.py
+src/utils.py

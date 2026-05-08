@@ -1,0 +1,16 @@
+# --- Librerías de tu lista ---
+pandas
+numpy
+seaborn
+matplotlib
+scikit-learn
+catboost
+xgboost
+Flask
+dill
+
+# --- Librerías del video (Análisis Estadístico) ---
+statsmodels    # CRUCIAL: Para OLS, VIF y pruebas de supuestos
+
+# --- Configuración de Proyecto ---
+-e .           # Para instalar tu propio paquete en modo editable
