@@ -50,7 +50,7 @@ def evaluar_modelo(X_train, y_train, X_test, y_test, models: dict, param: dict):
             logging.info(f"Iniciando GridSearchCv para el modelo: {nombre_modelo}")
 
             # GridSearchCV para encontrar los mejores parámetros
-            gs = GridSearchCV(model, para, cv= 3, n_jobs=1)
+            gs = GridSearchCV(model, para, cv= 3, n_jobs=-1)
             gs.fit(X_train, y_train)
 
             # Configuracion del modelo con los mejores parámetros encontrados
@@ -61,10 +61,10 @@ def evaluar_modelo(X_train, y_train, X_test, y_test, models: dict, param: dict):
             y_test_pred = model.predict(X_test)
             test_model_score = r2_score(y_test, y_test_pred)
         
-        #Guardar el resultado en el reporte
-        reporte[nombre_modelo] = test_model_score
+            #Guardar el resultado en el reporte
+            reporte[nombre_modelo] = test_model_score
 
-        logging.info(f"Modelo {nombre_modelo} evaluado. Re: {test_model_score}")
+            logging.info(f"Modelo {nombre_modelo} evaluado. Re: {test_model_score}")
 
         return reporte
     

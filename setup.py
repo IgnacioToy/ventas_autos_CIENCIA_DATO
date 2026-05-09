@@ -26,6 +26,7 @@ def get_requirements(file_path: str) -> List[str]:
 
     return requirements
 
+
 setup(
     name = 'proyecto',
     version = '0.0.1',

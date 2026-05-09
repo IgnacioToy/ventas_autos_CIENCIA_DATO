@@ -7,7 +7,7 @@ LOG_FILE = f'{datetime.now().strftime("%d-%m-%Y-%H-%M-%S")}.log'                
 log_path = os.path.join(os.getcwd(), 'logs', LOG_FILE)                                      # os.getcwd: Obtiene la carpeta donde estoy parado ahora
 os.makedirs(log_path, exist_ok= True)                                                       # Creacion de la carpeta con el nombre del archivo logs
 
-LOG_FILE_PATH = os.path.join(log_path, LOG_FILE)                                            # Ruta final del archivo
+LOG_FILE_PATH = os.path.join(os.getcwd(), "logs", LOG_FILE)                                            # Ruta final del archivo
 
 logging.basicConfig(
     filename= LOG_FILE_PATH,                                                                # Le dice en que archivo escrivir

@@ -17,3 +17,5 @@ class ExcepcionPersonalizada(Exception):
 
     def __str__(self):
         return self.mensaje_error
+
+        
