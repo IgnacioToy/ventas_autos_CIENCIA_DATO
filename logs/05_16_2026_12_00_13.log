@@ -1,0 +1,10 @@
+[ 2026-05-16 12:00:14,550 ] 12 root - INFO - =========================================
+[ 2026-05-16 12:00:14,551 ] 13 root - INFO - INICIANDO PIPELINE DE MACHINE LEARNING
+[ 2026-05-16 12:00:14,551 ] 14 root - INFO - =========================================
+[ 2026-05-16 12:00:14,551 ] 19 root - INFO - Iniciando fase de ingesta de datos
+[ 2026-05-16 12:00:14,551 ] 25 root - INFO - Leyendo archivo fuente: ev_market.csv
+[ 2026-05-16 12:00:14,581 ] 30 root - INFO - Dataset guardado en: /home/ignacio/Escritorio/regresion_lineal/data/processed/data_full.csv
+[ 2026-05-16 12:00:14,611 ] 38 root - INFO - Ingesta y división de datos finalizada exitosamente
+[ 2026-05-16 12:00:14,611 ] 32 root - INFO - =========================================
+[ 2026-05-16 12:00:14,611 ] 33 root - INFO - PIPELINE EJECUTADO EXITOSAMENTE
+[ 2026-05-16 12:00:14,611 ] 34 root - INFO - =========================================

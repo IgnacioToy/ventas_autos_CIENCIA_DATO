@@ -1,0 +1,4 @@
+[ 2026-05-08 21:20:05,095 ] 19 root - INFO - Iniciando ingesta de los datos
+[ 2026-05-08 21:20:05,095 ] 27 root - INFO - Leyendo archivo desde: /home/ignacio/Escritorio/regresion_lineal/netbook/data/ev_market.csv
+[ 2026-05-08 21:20:05,135 ] 35 root - INFO - Archivo raw guardado en: /home/ignacio/Escritorio/regresion_lineal/artifacts/data.csv
+[ 2026-05-08 21:20:05,164 ] 44 root - INFO - Ingesta de datos y división completada exitosamente

@@ -1,50 +1,55 @@
-from src.constants import TEST_DATA_PATH
-from src.constants import TRAIN_DATA_PATH
-from src.constants import RAW_DATA_PATH
-from src.constants import DIR_ARTIFACTS
 import sys
 import pandas as pd
-
-from src.exception import ExcepcionPersonalizada
-from src.logger import logging
-
 from sklearn.model_selection import train_test_split
+from pathlib import Path
 
+# Importación limpia de constantes
 from src.constants import (
-    ARCHIVO,
+    ARCHIVO_OBJETIVO,
     RAW_DATA_PATH,
     TRAIN_DATA_PATH,
     TEST_DATA_PATH,
-    DIR_ARTIFACTS
+    DIR_PROCESSED
 )
+from src.exception import ExcepcionPersonalizada
+from src.logger import logging
 
 class IngestaDatos:
     def iniciar_ingesta_datos(self):
-        logging.info("Iniciando ingesta de los datos")
+        logging.info("Iniciando fase de ingesta de datos")
 
         try:
-
-            logging.info(f"Leyendo archivo desde: {ARCHIVO}")
-            df = pd.read_csv(ARCHIVO)
-
-            # Crear carpeta de artefactos si no existe
-            DIR_ARTIFACTS.mkdir(parents= True, exist_ok= True)
-
-            # Guardar el archivo complet (raw) en artifacts
-            df.to_csv(RAW_DATA_PATH, index= False)
-            logging.info(f"Archivo raw guardado en: {RAW_DATA_PATH}")
-
-            # División de datos (80% de entrenamiento, 20% prueba)
-            test_set, train_set = train_test_split(df, test_size= 0.2, random_state=42)
+            if not ARCHIVO_OBJETIVO.exists():
+                raise FileNotFoundError(f"No se encuentra el archivo original en: {ARCHIVO_OBJETIVO}")
             
-            # Guardar los splits resultantes
+            logging.info(f"Leyendo archivo fuente: {ARCHIVO_OBJETIVO.name}")
+            df = pd.read_csv(ARCHIVO_OBJETIVO)
+
+            DIR_PROCESSED.mkdir(parents= True, exist_ok= True)
+            df.to_csv(RAW_DATA_PATH, index= False)
+            logging.info(f"Dataset guardado en: {RAW_DATA_PATH}")
+
+            train_set, test_set = train_test_split(df, test_size=0.2, random_state=42)
+
             train_set.to_csv(TRAIN_DATA_PATH, index= False)
             test_set.to_csv(TEST_DATA_PATH, index= False)
 
-            logging.info("Ingesta de datos y división train/test completada exitosamente")
 
-            return TRAIN_DATA_PATH, TEST_DATA_PATH
+            logging.info("Ingesta y división de datos finalizada exitosamente")
 
-        
+            return RAW_DATA_PATH, TEST_DATA_PATH
+
+
+
         except Exception as e:
+            logging.error("Error detectado en la ingesta de datos")
             raise ExcepcionPersonalizada(e, sys)
+
+# --- BLOQUE PARA PRUEBAS DIRECTAS ---
+if __name__ == "__main__":
+    try:
+        obj = IngestaDatos()
+        train_p, test_p = obj.iniciar_ingesta_datos()
+        print(f"✅ Ingesta finalizada. Datos en: {train_p}")
+    except Exception as e:
+        print(f"❌ Error fatal: {e}")

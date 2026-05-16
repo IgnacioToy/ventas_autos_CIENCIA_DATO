@@ -1,18 +1,21 @@
 from pathlib import Path
 
-# Resolvemos la raíz de forma absoluta
 DIR_BASE = Path(__file__).resolve().parent.parent.parent
 
-# Rutas de los archivos (Asegúrate de que la carpeta se llame 'notebook')
-DIR_DATA = DIR_BASE / "netbook" / "data"
-ARCHIVO = DIR_DATA / "ev_market.csv" # O "ev_market.csv" según tu archivo actual
+# 1 Estructura de datos 
+DIR_DATA = DIR_BASE / "data"
+DIR_RAW = DIR_DATA / "raw"
+DIR_INTERIM = DIR_DATA / "interim"
+DIR_PROCESSED = DIR_DATA / "processed"
 
-# Artefactos
-DIR_ARTIFACTS = DIR_BASE / "artifacts"
-TRAIN_DATA_PATH = DIR_ARTIFACTS / "train.csv"
-TEST_DATA_PATH = DIR_ARTIFACTS / "test.csv"
-RAW_DATA_PATH = DIR_ARTIFACTS / "data.csv"
+ARCHIVO_OBJETIVO = DIR_RAW / "ev_market.csv"
 
-# Objetos Serializados (Corregido .pkl)
-PREPROCESSOR_OBJ_FILE_PATH = DIR_ARTIFACTS / "preprocessor.pkl"
-MODEL_FILE_PATH = DIR_ARTIFACTS / "model.pkl"
+# Archivos resultantes de la ingesta (Van a PROCESSED)
+TRAIN_DATA_PATH = DIR_PROCESSED / "train.csv"
+TEST_DATA_PATH = DIR_PROCESSED / "test.csv"
+RAW_DATA_PATH = DIR_PROCESSED / "data_full.csv"     # El dataframe total para el EDA
+
+# Modelos y preprocesadores
+DIR_MODELS = DIR_BASE / "models"
+PREPROCESSOR_OBJ_FILE_PATH = DIR_MODELS / "preprocessor.pkl"
+MODEL_FILE_PATH = DIR_MODELS / "model.pkl"

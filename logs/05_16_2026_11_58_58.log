@@ -1,0 +1,7 @@
+[ 2026-05-16 11:58:59,951 ] 12 root - INFO - =========================================
+[ 2026-05-16 11:58:59,951 ] 13 root - INFO - INICIANDO PIPELINE DE MACHINE LEARNING
+[ 2026-05-16 11:58:59,951 ] 14 root - INFO - =========================================
+[ 2026-05-16 11:58:59,951 ] 19 root - INFO - Iniciando fase de ingesta de datos
+[ 2026-05-16 11:58:59,952 ] 25 root - INFO - Leyendo archivo fuente: ev_market.csv
+[ 2026-05-16 11:58:59,985 ] 45 root - ERROR - Error detectado en la ingesta de datos
+[ 2026-05-16 11:58:59,986 ] 37 root - ERROR - El Pipeline falló de manera crítica
